@@ -1,0 +1,17 @@
+<div>
+    <h1>Log In</h1>
+    <hr>
+    <form>
+        <label for="email">
+            Username:
+            <input type="text" name="username" id="username" [(ngModel)]="username">
+        </label>
+        <label for="password">
+            Password:
+            <input type="password" name="password" id="password" [(ngModel)]="password">
+        </label>
+        <button (click)="attemptUserLogin()">
+            Login
+        </button>
+    </form>
+</div>
