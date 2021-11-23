@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-login-page',
@@ -12,7 +13,8 @@ export class LoginPageComponent implements OnInit {
   password!: string;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -35,7 +37,8 @@ export class LoginPageComponent implements OnInit {
     })
     .then(res => res.json())
     .then(data => {
-      localStorage.setItem("token", data.token);
+      this.userService.setUserToken(data.token);
+      this.userService.setUserSession(data.user);
     });
   }
 
