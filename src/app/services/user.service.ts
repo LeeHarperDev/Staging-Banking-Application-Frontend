@@ -16,6 +16,12 @@ export class UserService {
     localStorage.setItem("user", JSON.stringify(user));
   }
 
+  getUserFromSession() : User {
+    const user : User = JSON.parse(<string>localStorage.getItem("user"));
+
+    return user;
+  }
+
   clearUserSession() {
     localStorage.clear();
   }
