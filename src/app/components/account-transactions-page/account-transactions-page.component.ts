@@ -22,4 +22,14 @@ export class AccountTransactionsPageComponent implements OnInit {
       this.accountService.getAccountTransactions(params.get("id")).subscribe(transactions => this.transactions = transactions);
     });
   }
+
+  get balance() : number {
+    let sum: number = 0;
+
+    this.transactions.forEach((transaction) => {
+      sum += transaction.amount;
+    });
+
+    return sum;
+  }
 }

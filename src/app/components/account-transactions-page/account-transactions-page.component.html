@@ -1,5 +1,8 @@
-<div style="display: block" *ngFor="let transaction of transactions" [class.deposit]="transaction.amount >= 0" [class.withdraw]="transaction.amount <= -1">
-  <p>{{ transaction.amount | currency }}</p>
-  <p style="font-style: italic">Posted on {{ transaction.date_created | date:'medium' }}</p>
-  <hr>
+<div>
+  <h2>Current Balance: {{ balance | currency }}</h2>
+  <div style="display: block" *ngFor="let transaction of transactions" [class.deposit]="transaction.amount >= 0" [class.withdraw]="transaction.amount <= -1">
+    <p>{{ transaction.amount | currency }}</p>
+    <p style="font-style: italic">Posted on {{ transaction.date_created | date:'medium' }}</p>
+    <hr>
+  </div>
 </div>
