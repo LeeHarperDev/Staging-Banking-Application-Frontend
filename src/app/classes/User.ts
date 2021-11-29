@@ -1,12 +1,12 @@
-export default class User {
-  id!: number;
-  username!: string;
-  role!: {
+export default interface User {
+  id: number;
+  username: string;
+  role: {
     id: number,
     name: string,
     description: string
   };
-  person!: {
+  person: {
     id: number,
     fname: string,
     lname: string,
@@ -20,6 +20,6 @@ export default class User {
       zip: string
     }
   };
-  email!: string;
-  dateCreated!: Date;
+  email: string;
+  dateCreated: Date;
 }
